@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>聚合收款码</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {
+            background: #f8f9fa;
+            padding: 30px 0;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        .qr-img {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .qr-img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+        }
+        .accordion-item {
+            margin-bottom: 25px; /* 每个账户之间增加间隔 */
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        .accordion-button {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white !important; /* 确保文字白色 */
+            padding: 20px;
+        }
+        .accordion-button:not(.collapsed) {
+            box-shadow: none;
+        }
+        .accordion-button::after {
+            filter: brightness(0) invert(1); /* 箭头白色 */
+        }
+        /* 5个账户不同渐变背景 */
+        .account-1 .accordion-button { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .account-2 .accordion-button { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .account-3 .accordion-button { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        .account-4 .accordion-button { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+        .account-5 .accordion-button { background: linear-gradient(135deg, #fa709a, #fee140); }
+
+        .accordion-body {
+            padding: 40px;
+            background: #ffffff;
+        }
+        .qr-label {
+            margin-top: 15px;
+            font-weight: 500;
+            color: #495057;
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>聚合收款码</h1>
+
+    <div class="accordion" id="qrAccordion">
+
+        <!-- 账户 1 -->
+        <div class="accordion-item account-1">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                    唐纳德
+                </button>
+            </h2>
+            <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#qrAccordion">
+                <div class="accordion-body">
+                    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-5 justify-content-center">
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765935628726_FOX-BJbank.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765935628726_FOX-BJbank.jpg">
+                            <p class="qr-label">北京银行</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765935630499_FOX-MSbank.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765935630499_FOX-MSbank.jpg">
+                            <p class="qr-label">民生银行</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765935636576_FOX-Wechat.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765935636576_FOX-Wechat.jpg">
+                            <p class="qr-label">微信经营版</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765935634047_FOX-Alipay.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765935634047_FOX-Alipay.jpg">
+                            <p class="qr-label">支付宝经营版</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765935634474_FOX-TJbank.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765935634474_FOX-TJbank.jpg">
+                            <p class="qr-label">天津银行</p>
+                        </div>
+						<div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765935814058_FOX-YS.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765935814058_FOX-YS.jpg">
+                            <p class="qr-label">银盛码牌</p>
+                        </div>
+						<div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765935823118_FOX-HXbank.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765935823118_FOX-HXbank.jpg">
+                            <p class="qr-label">华夏银行</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 账户 2 -->
+        <div class="accordion-item account-2">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                    Kabin
+                </button>
+            </h2>
+            <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#qrAccordion">
+                <div class="accordion-body">
+                    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-5 justify-content-center">
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765934716016_Kabin-Alipay.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765934716016_Kabin-Alipay.jpg">
+                            <p class="qr-label">支付宝经营码</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765934718944_Kabin-Wechat.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765934718944_Kabin-Wechat.jpg">
+                            <p class="qr-label">微信经营码</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765934713514_Kabin-MSbank.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765934713514_Kabin-MSbank.jpg">
+                            <p class="qr-label">民生银行(已注销)</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765934723666_Kabin-HXbank.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765934723666_Kabin-HXbank.jpg">
+                            <p class="qr-label">华夏银行</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 账户 3 -->
+        <div class="accordion-item account-3">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                    Crystal
+                </button>
+            </h2>
+            <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#qrAccordion">
+                <div class="accordion-body">
+                    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-5 justify-content-center">
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765934360905_Crystal-BJbank.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765934360905_Crystal-BJbank.jpg">
+                            <p class="qr-label">北京银行</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765934362793_Crystal-ZSbank.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765934362793_Crystal-ZSbank.jpg">
+                            <p class="qr-label">浙商银行</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765934362458_Crystal-HXbank.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765934362458_Crystal-HXbank.jpg">
+                            <p class="qr-label">华夏银行</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765934361415_Crystal-HZBank.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765934361415_Crystal-HZBank.jpg">
+                            <p class="qr-label">杭州银行(用不了)</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765934361931_Crystal-YS.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765934361931_Crystal-YS.jpg">
+                            <p class="qr-label">支付宝</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 账户 4 -->
+        <div class="accordion-item account-4">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+                    唐爸
+                </button>
+            </h2>
+            <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#qrAccordion">
+                <div class="accordion-body">
+                    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-5 justify-content-center">
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765935356879_TJD-ZSbank.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765935356879_TJD-ZSbank.jpg">
+                            <p class="qr-label">浙商银行</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765935353580_TJD-Wechat.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765935353580_TJD-Wechat.jpg">
+                            <p class="qr-label">微信经营码</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765935359693_TJD-Alipay.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765935359693_TJD-Alipay.jpg">
+                            <p class="qr-label">支付宝经营码</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765935503992_TJD-YS.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765935503992_TJD-YS.jpg">
+                            <p class="qr-label">银盛码牌</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765935359869_TJD-MSbank.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765935359869_TJD-MSbank.jpg">
+                            <p class="qr-label">民生银行</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 账户 5 -->
+        <div class="accordion-item account-5">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5">
+                    唐妈
+                </button>
+            </h2>
+            <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#qrAccordion">
+                <div class="accordion-body">
+                    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-5 justify-content-center">
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765935059241_FHH-ZSbank.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765935059241_FHH-ZSbank.jpg">
+                            <p class="qr-label">浙商银行</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765935064109_FHH-Wechat.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765935064109_FHH-Wechat.jpg">
+                            <p class="qr-label">微信经营码</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765935058244_FHH-Alipay.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765935058244_FHH-Alipay.jpg">
+                            <p class="qr-label">支付宝经营码</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765935054575_FHH-YS.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765935054575_FHH-YS.jpg">
+                            <p class="qr-label">银盛码牌</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://imgbed.foxtang.com/file/1765935205369_HHF-MSbank.jpg" class="qr-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://imgbed.foxtang.com/file/1765935205369_HHF-MSbank.jpg">
+                            <p class="qr-label">民生银行</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 放大查看模态框 -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-transparent border-0 shadow-none">
+            <div class="modal-body text-center p-0">
+                <img id="modalImage" src="" class="img-fluid rounded shadow-lg" style="max-height: 90vh; border-radius: 15px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 点击图片放大显示
+    const modal = document.getElementById('imageModal');
+    modal.addEventListener('show.bs.modal', event => {
+        const trigger = event.relatedTarget;
+        const imgSrc = trigger.getAttribute('data-img');
+        document.getElementById('modalImage').src = imgSrc;
+    });
+</script>
+
+</body>
+</html>
